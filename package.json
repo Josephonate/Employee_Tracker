@@ -1,0 +1,17 @@
+{
+  "name": "employee_tracker",
+  "version": "1.0.0",
+  "description": "Employee tracker using node.js and MSQL2",
+  "main": "node.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "Joseph Onate",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.6.1",
+    "node": "^20.6.0"
+  }
+}
