@@ -4,6 +4,7 @@
   "description": "Employee tracker using node.js and MSQL2",
   "main": "node.js",
   "scripts": {
+    "watch": "nodemon server.js",
     "test": "start"
   },
   "author": "Joseph Onate",
@@ -13,6 +14,7 @@
     "express": "^4.18.2",
     "inquirer": "^8.2.4",
     "mysql2": "^3.6.1",
-    "node": "^20.6.0"
+    "node": "^20.6.0",
+    "nodemon": "^3.0.1"
   }
 }
