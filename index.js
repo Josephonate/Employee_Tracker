@@ -17,7 +17,7 @@ async function promptUser() {
 
     switch (response.Options) {
         case 'View all Departments':
-            await dbfunctions.ViewDepartmens()
+            await dbfunctions.ViewDepartments()
             break;
 
         default:
