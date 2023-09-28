@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
-const dbfunctions = require('./config')
+const dbfunctions = require('./config');
+const db = require('./config/connection');
 
 async function promptUser() {
     const questions =
@@ -8,8 +9,8 @@ async function promptUser() {
         type: 'list',
         name: 'Options',
         message: 'Choose an option.',
-        choices: ['View all Departments', 'View all Roles', 'View all Employees',
-            'Add a Department', 'Add a Role', 'Add an Employee', 'Update an Employee Role', 'Exit']
+        choices: ['View all Employees','Add Employee', 'Update Employee Role',
+        'View all Roles','Add a Role','View all Departments', 'Add a Department','Exit']
 
     }
 
@@ -18,6 +19,14 @@ async function promptUser() {
     switch (response.Options) {
         case 'View all Departments':
             await dbfunctions.ViewDepartments()
+            break;
+
+        case 'View all Roles':
+            await dbfunctions.ViewRoles()
+            break;
+
+        case 'View all Employees':
+            await dbfunctions.ViewEmployees()
             break;
 
         default:
