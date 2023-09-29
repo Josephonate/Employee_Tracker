@@ -41,9 +41,32 @@ const dbfunctions = {
             await db.promise().query(sql,params)
             console.log(`Your employee was added (${first_name} ${last_name})`)
         } catch (error) {
-            Console.log("Your employee couldn't be add")
+            Console.log("Your employee couldn't be added")
         }
+    },
+    AddRole: async function (title,salary,department_id){
+        try {
+            const sql = `insert into role (title,salary,department_id) values (?,?,?)`;
+            const params =[title,salary,department_id];
+            await db.promise().query(sql,params)
+            console.log(`Your role was added (${title}`)
+
+        } catch (error) {
+            Console.log("Your role couldn't be added")
+        }
+    },
+AddDepartment: async function(name){
+    try {
+        const sql = `INSERT INTO department (name)
+        VALUES (?)`;
+        const params = [name];
+        await db.promise().query(sql,params)
+        console.log(`Your department was added (${name}`)
+
+    } catch (error) {
+        Console.log("Your department couldn't be added")
     }
+}
 
 }
 module.exports = dbfunctions;
