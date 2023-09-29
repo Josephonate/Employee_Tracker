@@ -53,6 +53,23 @@ async function promptUser() {
             await dbfunctions.AddEmployee(response.first_name, response.last_name, response.role_id, response.manager_id);
             break;
 
+        case 'Update Employee Role':
+            response = await inquirer.prompt([
+                {
+                    type: "input",
+                    name: "id",
+                    message: "What is the employees id number?"
+                },
+                {
+                    type: "input",
+                    name: "role_id",
+                    message: "What is the employees role id number?"
+                },
+
+            ])
+            await dbfunctions.UpdateEmployeeRole(response.id, response.role_id);
+            break;
+
         case 'Add a Role':
             response = await inquirer.prompt([
                 {
@@ -71,7 +88,7 @@ async function promptUser() {
                     message: "What is the department id number?"
                 },
             ])
-            await dbfunctions.AddRole(response.title, response.salary, response.department_id)
+            await dbfunctions.AddRole(response.title, response.salary, response.department_id);
             break;
 
         case 'Add a Department':
@@ -82,7 +99,7 @@ async function promptUser() {
                     message: "What is the department name?"
                 }
             ])
-            await dbfunctions.AddDepartment(response.name)
+            await dbfunctions.AddDepartment(response.name);
             break;
         default:
             console.log("Goodbye...");
