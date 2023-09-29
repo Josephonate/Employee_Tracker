@@ -1,17 +1,15 @@
 const inquirer = require('inquirer');
 const dbfunctions = require('./config');
-const db = require('./config/connection');
+
 
 async function promptUser() {
     const questions =
     {
-
         type: 'list',
         name: 'Options',
         message: 'Choose an option.',
         choices: ['View all Employees','Add Employee', 'Update Employee Role',
         'View all Roles','Add a Role','View all Departments', 'Add a Department','Exit']
-
     }
 
     let response = await inquirer.prompt([questions]);
@@ -32,9 +30,9 @@ async function promptUser() {
         default:
             console.log("Goodbye...");
             process.exit(0);
-            return;
+            // return;
     }
     promptUser();
-}
+};
 
 promptUser();
