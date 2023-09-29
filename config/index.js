@@ -1,3 +1,4 @@
+const { Console } = require("console");
 const db = require("./connection");
 require('console.table')
 
@@ -32,6 +33,17 @@ const dbfunctions = {
         } catch (error) {
             console.log("Couldn't find your Employees")
         }
+    },
+    AddEmployee: async function (first_name,last_name,role_id,manager_id){
+        try {
+            const sql = `insert into employee (first_name, last_name, role_id, manager_id) values (?,?,?,?)`;
+            const params =[first_name,last_name,role_id,manager_id];
+            await db.promise().query(sql,params)
+            console.log(`Your employee was added (${first_name} ${last_name})`)
+        } catch (error) {
+            Console.log("Your employee couldn't be add")
+        }
     }
+
 }
 module.exports = dbfunctions;
