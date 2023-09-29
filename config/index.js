@@ -4,7 +4,7 @@ require('console.table')
 const dbfunctions = {
     ViewDepartments: async function () {
         try {
-            const sql = `SELECT * FROM department`
+            const sql = `SELECT * FROM department order by id`
             const [department] = await db.promise().query(sql);
             console.table(department);
         } catch (error) {
@@ -14,7 +14,7 @@ const dbfunctions = {
     ViewRoles: async function () {
         try {
             const sql = `SELECT role.id, role.title, department.name as department, role.salary FROM department, role
-            where department.id = role.department_id`
+            where department.id = role.department_id ORDER By role.id`
             const [role] = await db.promise().query(sql);
             console.table(role)
         } catch (error) {
